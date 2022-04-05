@@ -43,7 +43,7 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout="@+id/btn_reset_score"
+                android:id="@+id/btn_reset_score"
                 android:text="@string/reset_score"/>
             <Button
                 android:layout_width="wrap_content"
