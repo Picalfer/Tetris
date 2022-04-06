@@ -2,7 +2,10 @@
     <string name="app_name">My Tetris</string>
     <string name="tetris">TETRIS</string>
     <string name="high_score_default">High score: 0</string>
+    <string name="high_score">High score: %1$s</string>
     <string name="new_game">New game</string>
     <string name="reset_score">Reset score</string>
     <string name="exit">exit</string>
+    <string name="current_score_default">Current score: 0</string>
+    <string name="current_score">Current score: %1$s</string>
 </resources>

@@ -5,5 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameActivity">
-
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:weightSum="10"
+        android:background="#e8e8e8">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="32dp"
+            android:paddingBottom="32dp"
+            android:layout_weight="1">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/current_score_default"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:textSize="14sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/layout_margin_top"
+                    android:text="@string/high_score_default"
+                    android:textAllCaps = "true"
+                    android:textStyle="bold"
+                    android:textSize="14sp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
