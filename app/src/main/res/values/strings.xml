@@ -7,7 +7,7 @@
     <string name="new_game">New game</string>
     <string name="reset_score">Reset score</string>
     <string name="exit">exit</string>
-    <string name="current_score_default">Current score: 0</string>
+    <string name="current_score_only">Current score:</string>
     <string name="current_score">Current score: %1$s</string>
     <string name="btn_restart">Restart</string>
 </resources>
