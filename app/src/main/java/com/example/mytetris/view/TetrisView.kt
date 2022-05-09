@@ -43,6 +43,7 @@ class TetrisView : View {
                 if (owner.model != null) {
                     if (owner.model!!.isGameOver()) {
                         owner.model?.endGame()
+                        owner.activity?.tvCurrentScore?.text = "0"
                         Toast.makeText(owner.activity, "Game over", Toast.LENGTH_LONG).show()
                     }
                     if (owner.model!!.isGameActive()) {
@@ -94,6 +95,7 @@ class TetrisView : View {
     private fun updateScores() {
         activity?.tvCurrentScore?.text = "${model?.score}"
         activity?.tvHighScore?.text = "${activity?.appPreferences?.getHighScore()}"
+        activity?.updateHighScore()
     }
 
     override fun onDraw(canvas: Canvas) {
