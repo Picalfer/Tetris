@@ -5,18 +5,16 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.graphics.RectF
+import android.os.Handler
 import android.os.Message
-import android.view.View
-import com.example.mytetris.GameActivity
-import com.example.mytetris.models.AppModel
 import android.util.AttributeSet
+import android.view.View
 import android.widget.Toast
-import androidx.annotation.Dimension
+import com.example.mytetris.GameActivity
 import com.example.mytetris.constants.CellConstants
 import com.example.mytetris.constants.FieldConstants
+import com.example.mytetris.models.AppModel
 import com.example.mytetris.models.Block
-import java.util.logging.Handler
-import java.util.logging.LogRecord
 
 class TetrisView : View {
     // расширяемя классом View, общим классом для всех представлений
@@ -36,8 +34,8 @@ class TetrisView : View {
 
     // создали два вторичных конструктора класса, из них будет запускаться тот который нужен
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
-
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) :
+            super(context, attrs, defStyle)
 
     private class ViewHandler(private val owner: TetrisView) : Handler() {
         override fun handleMessage(message: Message) {
@@ -139,7 +137,6 @@ class TetrisView : View {
         val left: Float = (frameOffset.width + x * cellSize.width + BLOCK_OFFSET).toFloat()
         val bottom: Float = (frameOffset.height + (y + 1) * cellSize.height - BLOCK_OFFSET).toFloat()
         val right: Float = (frameOffset.width + (x + 1) * cellSize.height - BLOCK_OFFSET).toFloat()
-
         val rectangle = RectF(left, top, right, bottom)
         canvas.drawRoundRect(rectangle, 4F, 4F, paint)
     }

@@ -69,8 +69,7 @@ class AppModel {
                     val y = position.y + i
                     val x = position.x + j
                     if (CellConstants.EMPTY.value != shape[i][j] &&
-                        CellConstants.EMPTY.value != field[x][y]
-                    ) {
+                        CellConstants.EMPTY.value != field[y][x]) {
                         return false
                     }
                 }
@@ -182,7 +181,7 @@ class AppModel {
                         val y = position.y + i
                         val x = position.x + j
                         if (CellConstants.EMPTY.value != shape[i][j]) {
-                            field[x][y] = shape[i][j]
+                            field[y][x] = shape[i][j]
                         }
                     }
                 }
@@ -239,7 +238,6 @@ class AppModel {
     enum class Statuses {
         AWAITING_START, // состояние игры до ее запуска
         ACTIVE, // игровой процесс выполняется
-        INACTIVE, // игровой процесс не выполняется
         OVER // игра завершена
     }
 

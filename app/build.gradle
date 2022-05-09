@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 31
+    compileSdk 31 // because Handler does`nt work for 31 sdk version
 
     defaultConfig {
         applicationId "com.example.mytetris"
@@ -32,6 +32,7 @@ android {
     buildFeatures {
         viewBinding(true)
     }
+    namespace 'com.example.mytetris'
 }
 
 dependencies {
