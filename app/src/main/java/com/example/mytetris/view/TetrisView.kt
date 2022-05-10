@@ -111,7 +111,7 @@ class TetrisView : View {
     }
 
     private fun drawFrame(canvas: Canvas) {
-        paint.color = Color.LTGRAY
+        paint.color = Color.BLACK // выбираем цвет заднего фона игрового поля
         canvas.drawRect(
             frameOffset.width.toFloat(),
             frameOffset.height.toFloat(),
