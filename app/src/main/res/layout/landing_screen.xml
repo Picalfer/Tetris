@@ -8,49 +8,70 @@
     android:background="@drawable/landing_screen">
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
         android:layout_marginTop="@dimen/layout_margin_top"
         android:layout_marginBottom="@dimen/layout_margin_bottom"
         android:gravity="center_horizontal"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
+            android:layout_marginTop="33dp"
             android:gravity="center_horizontal"
-            android:layout_marginTop="33dp">
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="HIGH SCORE: "
-                android:textStyle="bold"
-                android:textSize="25sp"/>
+                android:textSize="25sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/tv_high_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="0"
-                android:textStyle="bold"
+                android:textColor="@color/light_green"
                 android:textSize="25sp"
-                android:textColor="@color/light_green"/>
+                android:textStyle="bold" />
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/tetris_logo"
+            android:scaleX="1.11"
+            android:scaleY="1.11" />
+
         <ImageButton
             android:id="@+id/btn_new_game"
-            android:layout_width="293dp"
-            android:layout_height="178dp"
-            android:layout_marginTop="160dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp"
             android:background="@drawable/new_game_btn"
-            android:contentDescription="@string/app_name" />
+            android:contentDescription="@string/app_name"
+            android:scaleX="1.1"
+            android:scaleY="1.1" />
 
     </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tetris_heap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

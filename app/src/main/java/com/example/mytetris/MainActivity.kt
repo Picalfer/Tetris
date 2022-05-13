@@ -1,15 +1,12 @@
 package com.example.mytetris
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.TextView
-import com.example.mytetris.databinding.ActivityMainBinding
+import androidx.appcompat.app.AppCompatActivity
 import com.example.mytetris.databinding.LandingScreenBinding
 import com.example.mytetris.storage.AppPreferences
-import com.google.android.material.snackbar.Snackbar
-import kotlin.system.exitProcess
 
 class MainActivity : AppCompatActivity() {
 

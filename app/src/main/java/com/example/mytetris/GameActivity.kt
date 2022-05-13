@@ -1,20 +1,18 @@
 package com.example.mytetris
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.DragEvent
 import android.view.MotionEvent
 import android.view.View
-import android.widget.Button
 import android.widget.TextView
-import com.example.mytetris.databinding.ActivityGameBinding
+import androidx.appcompat.app.AppCompatActivity
+import com.example.mytetris.databinding.GameScreenBinding
 import com.example.mytetris.models.AppModel
 import com.example.mytetris.storage.AppPreferences
 import com.example.mytetris.view.TetrisView
 
 class GameActivity : AppCompatActivity() {
 
-    private lateinit var b: ActivityGameBinding
+    private lateinit var b: GameScreenBinding
 
     var appPreferences: AppPreferences? = null
     private lateinit var tetrisView: TetrisView
@@ -22,31 +20,29 @@ class GameActivity : AppCompatActivity() {
 
     lateinit var tvCurrentScore: TextView
     lateinit var tvHighScore: TextView
-    private lateinit var btnRestart: Button
 
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        b = ActivityGameBinding.inflate(layoutInflater)
+        b = GameScreenBinding.inflate(layoutInflater)
         setContentView(b.root)
+        supportActionBar?.hide()
 
         appPreferences = AppPreferences(this)
         appModel.setPreferences(appPreferences)
 
         tvCurrentScore = b.tvCurrentScore
         tvHighScore = b.tvHighScore
-        btnRestart = b.btnRestart
         tetrisView = b.viewTetris
 
         tetrisView.setActivity(this)
         tetrisView.setModel(appModel)
         tetrisView.setOnTouchListener(this::onTetrisViewTouch)
-        btnRestart.setOnClickListener(this::btnRestartClick)
 
         updateHighScore()
         updateCurrentScore()
     }
 
-    private fun btnRestartClick(view: View) {
+    fun btnRestartClick(view: View) {
         appModel.restartGame()
     }
 
