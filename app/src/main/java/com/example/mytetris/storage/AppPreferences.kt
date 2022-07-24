@@ -6,7 +6,7 @@ import com.example.mytetris.Constants
 
 class AppPreferences(ctx: Context) { // сюда мы будем передавать "this" при
     // создании экзмпляра этого класса
-    val data: SharedPreferences = ctx
+    private val data: SharedPreferences = ctx
         .getSharedPreferences("APP_PREFERENCES", Context.MODE_PRIVATE)
 
     fun saveHighScore(highScore: Int) {

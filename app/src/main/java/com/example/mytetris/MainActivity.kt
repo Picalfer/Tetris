@@ -24,8 +24,6 @@ class MainActivity : AppCompatActivity() {
 
         tvHighScore = b.tvHighScore
         b.btnNewGame.setOnClickListener(this::onBtnNewGameClick)
-        /*b.btnExit.setOnClickListener(this::onBtnExitClick)
-        b.btnResetScore.setOnClickListener(this::onBtnResetScoreClick)*/
     }
 
     override fun onResume() {
@@ -37,14 +35,4 @@ class MainActivity : AppCompatActivity() {
         val intent = Intent(this, GameActivity::class.java) // this - MainActivity
         startActivity(intent)
     }
-
-/*    private fun onBtnResetScoreClick(view: View) {
-        preferences.clearHighScore()
-        Snackbar.make(view, "Score successfully reset", Snackbar.LENGTH_SHORT).show()
-        b.tvHighScore.text = getString(R.string.high_score, preferences.getHighScore().toString())
-    }
-
-    private fun onBtnExitClick(view: View) {
-        exitProcess(0)
-    }*/
 }

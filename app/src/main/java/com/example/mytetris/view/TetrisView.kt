@@ -19,17 +19,20 @@ import com.example.mytetris.models.Block
 class TetrisView : View {
     // расширяемя классом View, общим классом для всех представлений
     private val paint = Paint()
+
     // класс Paint включает в себе информацию о стиле и цвете, рисование текстов, растровых
     // изображений, геометрических построений
     private var lastMove: Long = 0
+
     // для отсеживания промежутка времени в миллисекундах, в течениии которого
     // выполняется перемещение
     private var model: AppModel? = null
     private var activity: GameActivity? = null
     private val viewHandler = ViewHandler(this)
-    private var cellSize: Dimension = Dimension(0,0)
+    private var cellSize: Dimension = Dimension(0, 0)
+
     // размер ячеек в игре
-    private var frameOffset: Dimension = Dimension(0,0)
+    private var frameOffset: Dimension = Dimension(0, 0)
     // смещение фрейма ячеек
 
     // создали два вторичных конструктора класса, из них будет запускаться тот который нужен
@@ -137,7 +140,8 @@ class TetrisView : View {
         paint.color = rgbColor
         val top: Float = (frameOffset.height + y * cellSize.height + BLOCK_OFFSET).toFloat()
         val left: Float = (frameOffset.width + x * cellSize.width + BLOCK_OFFSET).toFloat()
-        val bottom: Float = (frameOffset.height + (y + 1) * cellSize.height - BLOCK_OFFSET).toFloat()
+        val bottom: Float =
+            (frameOffset.height + (y + 1) * cellSize.height - BLOCK_OFFSET).toFloat()
         val right: Float = (frameOffset.width + (x + 1) * cellSize.height - BLOCK_OFFSET).toFloat()
         val rectangle = RectF(left, top, right, bottom)
         canvas.drawRoundRect(rectangle, 4F, 4F, paint)
@@ -147,7 +151,7 @@ class TetrisView : View {
         super.onSizeChanged(w, h, oldw, oldh)
         val cellWidth = (w - 2 * FRAME_OFFSET_BASE) / FieldConstants.COLUMN_COUNT.value
         val cellHeight = (h - 2 * FRAME_OFFSET_BASE) / FieldConstants.ROW_COUNT.value
-        val n = Math.min(cellWidth, cellHeight)
+        val n = cellWidth.coerceAtMost(cellHeight)
         this.cellSize = Dimension(n, n)
         val offsetX = (w - FieldConstants.COLUMN_COUNT.value * n) / 2
         val offsetY = (h - FieldConstants.ROW_COUNT.value * n) / 2
@@ -155,8 +159,8 @@ class TetrisView : View {
     }
 
     companion object {
-        private val DELAY = 500
-        private val BLOCK_OFFSET = 2
-        private val FRAME_OFFSET_BASE = 10
+        private const val DELAY = 500
+        private const val BLOCK_OFFSET = 2
+        private const val FRAME_OFFSET_BASE = 10
     }
 }

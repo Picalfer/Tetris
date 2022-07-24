@@ -10,4 +10,8 @@
     <string name="current_score_only">Current score:</string>
     <string name="current_score">Current score: %1$s</string>
     <string name="btn_restart">Restart</string>
+    <string name="high_score_text_landing_screen">HIGH SCORE:</string>
+    <string name="null_value_for_start_score">0</string>
+    <string name="tetris_logo">TETRIS</string>
+    <string name="tetromino">tetraminos</string>
 </resources>

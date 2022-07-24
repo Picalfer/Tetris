@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@drawable/landing_screen">
+    android:background="@drawable/landing_screen"
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -30,7 +30,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="HIGH SCORE: "
+                android:text="@string/high_score_text_landing_screen"
                 android:textSize="25sp"
                 android:textStyle="bold" />
 
@@ -38,7 +38,7 @@
                 android:id="@+id/tv_high_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:text="@string/null_value_for_start_score"
                 android:textColor="@color/light_green"
                 android:textSize="25sp"
                 android:textStyle="bold" />
@@ -50,6 +50,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@drawable/tetris_logo"
+            android:contentDescription="@string/tetris_logo"
             android:scaleX="1.11"
             android:scaleY="1.11" />
 
@@ -69,9 +70,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/tetris_heap"
+        android:contentDescription="@string/tetromino"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

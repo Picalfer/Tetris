@@ -23,7 +23,7 @@ class AppModel {
         this.preferences = preferences
     }
 
-    fun getCellStatus(row: Int, column: Int) : Byte? {
+    fun getCellStatus(row: Int, column: Int): Byte? {
         return field[row][column]
     }
 
@@ -33,15 +33,15 @@ class AppModel {
         }
     }
 
-    fun isGameActive() : Boolean {
+    fun isGameActive(): Boolean {
         return currentState == Statuses.ACTIVE.name
     }
 
-    fun isGameAwaitingStart() : Boolean {
+    fun isGameAwaitingStart(): Boolean {
         return currentState == Statuses.AWAITING_START.name
     }
 
-    fun isGameOver() : Boolean {
+    fun isGameOver(): Boolean {
         return currentState == Statuses.OVER.name
     }
 
@@ -64,12 +64,13 @@ class AppModel {
         } else if (position.x + shape[0].size > FieldConstants.COLUMN_COUNT.value) {
             false
         } else {
-            for (i in 0 until shape.size) {
+            for (i in shape.indices) {
                 for (j in 0 until shape[i].size) {
                     val y = position.y + i
                     val x = position.x + j
                     if (CellConstants.EMPTY.value != shape[i][j] &&
-                        CellConstants.EMPTY.value != field[y][x]) {
+                        CellConstants.EMPTY.value != field[y][x]
+                    ) {
                         return false
                     }
                 }
@@ -78,7 +79,7 @@ class AppModel {
         }
     }
 
-    private fun moveValid(position: Point, frameNumber: Int?) : Boolean {
+    private fun moveValid(position: Point, frameNumber: Int?): Boolean {
         // функция для запуска функции validTranslation
         val shape: Array<ByteArray>? = currentBlock?.getShape(frameNumber as Int)
         return validTranslation(position, shape as Array<ByteArray>)
@@ -148,12 +149,12 @@ class AppModel {
     }
 
     private fun persistCellData() {
-        for (i in 0 until field.size) {
+        for (i in field.indices) {
             for (j in 0 until field[i].size) {
-                var status = getCellStatus(i,j)
+                var status = getCellStatus(i, j)
                 if (status == CellConstants.EPHEMERAL.value) {
                     status = currentBlock?.staticValue
-                    setCellStatus(i,j,status)
+                    setCellStatus(i, j, status)
                 }
             }
         }
@@ -161,10 +162,10 @@ class AppModel {
 
     private fun assessField() {
         // построчная проверка заполняемости поля
-        for (i in 0 until field.size) {
+        for (i in field.indices) {
             var emptyCells = 0
             for (j in 0 until field[i].size) {
-                val status = getCellStatus(i,j)
+                val status = getCellStatus(i, j)
                 val isEmpty = CellConstants.EMPTY.value == status
                 if (isEmpty) emptyCells++
             }
@@ -189,7 +190,7 @@ class AppModel {
         }
     }
 
-    private fun blockAdditionPossible() : Boolean {
+    private fun blockAdditionPossible(): Boolean {
         // проверяем, что поле еще не заполнено, и блок сможет перемещаться в нем
         if (!moveValid(currentBlock?.position as Point, currentBlock?.frameNumber)) {
             return false
@@ -202,13 +203,13 @@ class AppModel {
         if (nToRow > 0) {
             for (j in nToRow - 1 downTo 0) {
                 for (m in 0 until field[j].size) {
-                    setCellStatus(j + 1, m, getCellStatus(j,m))
+                    setCellStatus(j + 1, m, getCellStatus(j, m))
                 }
             }
         }
 
-        for (j in 0 until  field[0].size) {
-            setCellStatus(0,j, CellConstants.EMPTY.value)
+        for (j in 0 until field[0].size) {
+            setCellStatus(0, j, CellConstants.EMPTY.value)
         }
     }
 

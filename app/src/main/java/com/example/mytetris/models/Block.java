@@ -10,16 +10,16 @@ import com.example.mytetris.constants.FieldConstants;
 import java.util.Random;
 
 public class Block {
-    private int shapeIndex;
+    private final int shapeIndex;
     private int frameNumber;
-    private BlockColor color;
+    private final BlockColor color;
     private Point position;
 
     private Block(int shapeIndex, BlockColor blockColor) {
         this.frameNumber = 0;
         this.shapeIndex = shapeIndex;
         this.color = blockColor;
-        this.position = new Point(FieldConstants.COLUMN_COUNT.getValue()/2, 0);
+        this.position = new Point(FieldConstants.COLUMN_COUNT.getValue() / 2, 0);
         // помещаем по горизонтали в центр элемент, а по вертикали в самый верх
     }
 
@@ -37,7 +37,7 @@ public class Block {
 
     public static int getColor(byte value) {
         // проходимся по перечислению цветов и если байт совпадет с аргументом - возвращаем rgb
-        for(BlockColor color : BlockColor.values()) {
+        for (BlockColor color : BlockColor.values()) {
             if (value == color.byteValue) {
                 return color.rgbValue;
             }
@@ -51,9 +51,9 @@ public class Block {
     }
 
     @NonNull
-        public final byte[][] getShape(int frameNumber) {
-            return Shape.values()[shapeIndex].getFrame(frameNumber).as2dByteArray();
-        }
+    public final byte[][] getShape(int frameNumber) {
+        return Shape.values()[shapeIndex].getFrame(frameNumber).as2dByteArray();
+    }
 
     public Point getPosition() {
         return this.position;
@@ -76,11 +76,11 @@ public class Block {
     }
 
     public enum BlockColor {
-        PINK(Color.rgb(255,105,180), (byte) 2),
-        GREEN(Color.rgb(0,128,0), (byte) 3),
-        ORANGE(Color.rgb(255,140,0), (byte) 4),
-        YELLOW(Color.rgb(255,255,0), (byte) 5),
-        CYAN(Color.rgb(0,255,255), (byte) 6);
+        PINK(Color.rgb(255, 105, 180), (byte) 2),
+        GREEN(Color.rgb(0, 128, 0), (byte) 3),
+        ORANGE(Color.rgb(255, 140, 0), (byte) 4),
+        YELLOW(Color.rgb(255, 255, 0), (byte) 5),
+        CYAN(Color.rgb(0, 255, 255), (byte) 6);
 
         BlockColor(int rgbValue, byte byteValue) {
             this.rgbValue = rgbValue;

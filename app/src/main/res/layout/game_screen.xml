@@ -4,40 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".GameActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bg_game"
         android:orientation="vertical"
-        android:weightSum="10"
-        android:background="@drawable/bg_game">
+        android:weightSum="10">
+
         <LinearLayout
-            android:layout_marginTop="15dp"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
             android:layout_marginHorizontal="30dp"
-            android:gravity="center_horizontal">
+            android:layout_marginTop="15dp"
+            android:layout_weight="1"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
 
             <ImageButton
-                android:onClick="btnRestartClick"
+                android:id="@+id/btn_restart"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:background="@drawable/restart_png"
                 android:contentDescription="@string/btn_restart"
+                android:onClick="btnRestartClick"
                 android:scaleX="1.3"
                 android:scaleY="1.3"
                 tools:ignore="TouchTargetSizeCheck" />
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginStart="70dp"
                 android:text="@string/high_score_only"
-                android:textAllCaps = "true"
-                android:textStyle="bold"
-                android:textSize="14sp"/>
+                android:textAllCaps="true"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
             <TextView
                 android:id="@+id/tv_high_score"
                 android:layout_width="wrap_content"
@@ -46,34 +51,38 @@
                 android:layout_marginStart="10dp"
                 android:textSize="18sp" />
         </LinearLayout>
+
         <com.example.mytetris.view.TetrisView
-            android:layout_weight="8"
+            android:id="@+id/view_tetris"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginBottom="40dp"
-            android:id="@+id/view_tetris"/>
+            android:layout_weight="8" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="30dp"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="30dp"
             android:layout_marginTop="-45dp"
             android:layout_weight="1"
-            android:orientation="horizontal"
             android:gravity="center"
-            android:layout_gravity="center"
-            android:layout_marginHorizontal="30dp">
+            android:orientation="horizontal">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/current_score_only"
                 android:textAllCaps="true"
-                android:textStyle="bold"
-                android:textSize="14sp"/>
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
             <TextView
-                android:layout_marginStart="5dp"
                 android:id="@+id/tv_current_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="14sp"/>
+                android:layout_marginStart="5dp"
+                android:textSize="14sp" />
         </LinearLayout>
-        </LinearLayout>
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

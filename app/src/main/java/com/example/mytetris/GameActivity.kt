@@ -38,12 +38,12 @@ class GameActivity : AppCompatActivity() {
         tetrisView.setModel(appModel)
         tetrisView.setOnTouchListener(this::onTetrisViewTouch)
 
+        b.btnRestart.setOnClickListener {
+            appModel.restartGame()
+        }
+
         updateHighScore()
         updateCurrentScore()
-    }
-
-    fun btnRestartClick(view: View) {
-        appModel.restartGame()
     }
 
     private fun onTetrisViewTouch(view: View, event: MotionEvent): Boolean {
@@ -61,17 +61,16 @@ class GameActivity : AppCompatActivity() {
         return true
     }
 
-    private fun resolveTouchDirection(view: View, event: MotionEvent) : Int {
-            val x = event.x / view.width
-            val y = event.y / view.height
-            val direction: Int
-            direction = if (y > x) {
-                if (x > 1 - y) 2 else 0
-            }
-            else {
-                if (x > 1 - y) 3 else 1
-            }
-            return direction
+    private fun resolveTouchDirection(view: View, event: MotionEvent): Int {
+        val x = event.x / view.width
+        val y = event.y / view.height
+        val direction: Int
+        direction = if (y > x) {
+            if (x > 1 - y) 2 else 0
+        } else {
+            if (x > 1 - y) 3 else 1
+        }
+        return direction
     }
 
     private fun moveTetromino(motion: AppModel.Motions) {
