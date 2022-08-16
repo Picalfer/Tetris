@@ -12,7 +12,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var b: LandingScreenBinding
     private lateinit var preferences: AppPreferences
-    lateinit var tvHighScore: TextView
+    private lateinit var tvHighScore: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun onBtnNewGameClick(view: View) {
-        val intent = Intent(this, GameActivity::class.java) // this - MainActivity
+        val intent = Intent(this, GameActivity::class.java)
         startActivity(intent)
     }
 }

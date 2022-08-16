@@ -1,5 +1,6 @@
 package com.example.mytetris
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.MotionEvent
 import android.view.View
@@ -21,6 +22,7 @@ class GameActivity : AppCompatActivity() {
     lateinit var tvCurrentScore: TextView
     lateinit var tvHighScore: TextView
 
+    @SuppressLint("ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         b = GameScreenBinding.inflate(layoutInflater)
@@ -64,8 +66,7 @@ class GameActivity : AppCompatActivity() {
     private fun resolveTouchDirection(view: View, event: MotionEvent): Int {
         val x = event.x / view.width
         val y = event.y / view.height
-        val direction: Int
-        direction = if (y > x) {
+        val direction: Int = if (y > x) {
             if (x > 1 - y) 2 else 0
         } else {
             if (x > 1 - y) 3 else 1

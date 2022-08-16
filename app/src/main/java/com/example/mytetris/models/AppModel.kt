@@ -18,8 +18,7 @@ class AppModel {
         FieldConstants.COLUMN_COUNT.value
     )
 
-    fun setPreferences(preferences: AppPreferences?) { // устанавливаем в качестве аргумента
-        // присланный SharedPreferences файл
+    fun setPreferences(preferences: AppPreferences?) {
         this.preferences = preferences
     }
 
