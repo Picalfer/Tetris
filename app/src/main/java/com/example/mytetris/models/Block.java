@@ -2,8 +2,11 @@ package com.example.mytetris.models;
 
 import android.graphics.Color;
 import android.graphics.Point;
+
 import androidx.annotation.NonNull;
+
 import com.example.mytetris.constants.FieldConstants;
+
 import java.util.Random;
 
 public class Block {
