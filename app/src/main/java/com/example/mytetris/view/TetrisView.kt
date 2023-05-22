@@ -17,14 +17,14 @@ import com.example.mytetris.models.AppModel
 import com.example.mytetris.models.Block
 
 class TetrisView : View {
-    // расширяемя классом View, общим классом для всех представлений
+    // расширяемая классом View, общим классом для всех представлений
     private val paint = Paint()
 
     // класс Paint включает в себе информацию о стиле и цвете, рисование текстов, растровых
     // изображений, геометрических построений
     private var lastMove: Long = 0
 
-    // для отсеживания промежутка времени в миллисекундах, в течениии которого
+    // для отслеживания промежутка времени в миллисекундах, в течении которого
     // выполняется перемещение
     private var model: AppModel? = null
     private var activity: GameActivity? = null

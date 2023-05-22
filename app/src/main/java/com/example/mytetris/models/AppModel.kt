@@ -96,12 +96,15 @@ class AppModel {
                 Motions.LEFT.name -> {
                     coordinate?.x = currentBlock?.position?.x?.minus(1)
                 }
+
                 Motions.RIGHT.name -> {
                     coordinate?.x = currentBlock?.position?.x?.plus(1)
                 }
+
                 Motions.DOWN.name -> {
                     coordinate?.y = currentBlock?.position?.y?.plus(1)
                 }
+
                 Motions.ROTATE.name -> {
                     frameNumber = frameNumber?.plus(1)
                     if (frameNumber != null) {
@@ -160,7 +163,7 @@ class AppModel {
     }
 
     private fun assessField() {
-        // построчная проверка заполняемости поля
+        // построчная проверка наполняемости поля
         for (i in field.indices) {
             var emptyCells = 0
             for (j in 0 until field[i].size) {
@@ -193,7 +196,7 @@ class AppModel {
         // проверяем, что поле еще не заполнено, и блок сможет перемещаться в нем
         if (!moveValid(currentBlock?.position as Point, currentBlock?.frameNumber)) {
             return false
-            // это значит, что блоки заоплнили поле до верхнего края - игра заканчивается
+            // это значит, что блоки заполнили поле до верхнего края - игра заканчивается
         }
         return true
     }
