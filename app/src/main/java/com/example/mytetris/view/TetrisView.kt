@@ -37,8 +37,11 @@ class TetrisView : View {
 
     // создали два вторичных конструктора класса, из них будет запускаться тот который нужен
     constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
-    constructor(context: Context, attrs: AttributeSet, defStyle: Int) :
-            super(context, attrs, defStyle)
+    constructor(context: Context, attrs: AttributeSet, defStyle: Int) : super(
+        context,
+        attrs,
+        defStyle
+    )
 
     private class ViewHandler(private val owner: TetrisView) : Handler() {
         override fun handleMessage(message: Message) {

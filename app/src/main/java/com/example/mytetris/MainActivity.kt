@@ -3,7 +3,6 @@ package com.example.mytetris
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.example.mytetris.databinding.LandingScreenBinding
 import com.example.mytetris.storage.AppPreferences

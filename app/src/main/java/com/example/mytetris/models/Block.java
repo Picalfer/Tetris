@@ -2,11 +2,8 @@ package com.example.mytetris.models;
 
 import android.graphics.Color;
 import android.graphics.Point;
-
 import androidx.annotation.NonNull;
-
 import com.example.mytetris.constants.FieldConstants;
-
 import java.util.Random;
 
 public class Block {
@@ -26,7 +23,7 @@ public class Block {
     public static Block createBlock() {
         Random random = new Random();
         int shapeIndex = random.nextInt(Shape.values().length); // получаем количество возможных
-        // тетрамино
+        // тетромино
         BlockColor blockColor = BlockColor.values()
                 [random.nextInt(BlockColor.values().length)];
         Block block = new Block(shapeIndex, blockColor);
