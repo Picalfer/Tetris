@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Tetris</string>
+    <string name="app_name">Mega Tetris</string>
     <string name="tetris">TETRIS</string>
     <string name="high_score_only">High score:</string>
     <string name="high_score_default">High score: 0</string>

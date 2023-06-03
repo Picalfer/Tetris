@@ -12,23 +12,19 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var b: LandingScreenBinding
     private lateinit var preferences: AppPreferences
-    private lateinit var tvHighScore: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        b = LandingScreenBinding.inflate(layoutInflater)
-        setContentView(b.root)
-        supportActionBar?.hide()
+        b = LandingScreenBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         preferences = AppPreferences(this)
 
-        tvHighScore = b.tvHighScore
         b.btnNewGame.setOnClickListener(this::onBtnNewGameClick)
     }
 
     override fun onResume() {
         super.onResume()
-        tvHighScore.text = preferences.getHighScore().toString()
+        b.tvHighScore.text = preferences.getHighScore().toString()
     }
 
     private fun onBtnNewGameClick(view: View) {

@@ -25,9 +25,7 @@ class GameActivity : AppCompatActivity() {
     @SuppressLint("ClickableViewAccessibility")
     public override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        b = GameScreenBinding.inflate(layoutInflater)
-        setContentView(b.root)
-        supportActionBar?.hide()
+        b = GameScreenBinding.inflate(layoutInflater).also { setContentView(it.root) }
 
         appPreferences = AppPreferences(this)
         appModel.setPreferences(appPreferences)

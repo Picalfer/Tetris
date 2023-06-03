@@ -47,6 +47,7 @@
                 android:id="@+id/tv_high_score"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
                 android:text="@string/null_value_for_start_score"
                 android:textColor="@color/light_green"
                 android:textSize="25sp"
