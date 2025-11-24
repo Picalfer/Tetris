@@ -52,10 +52,10 @@ class GameActivity : AppCompatActivity() {
             tetrisView.setGameCommandWithDelay(AppModel.Motions.DOWN)
         } else if (appModel.isGameActive()) {
             when (resolveTouchDirection(view, event)) {
-                0 -> moveTetromino(AppModel.Motions.LEFT)
-                1 -> moveTetromino(AppModel.Motions.ROTATE)
-                2 -> moveTetromino(AppModel.Motions.DOWN)
-                3 -> moveTetromino(AppModel.Motions.RIGHT)
+                0 -> moveTetramino(AppModel.Motions.LEFT)
+                1 -> moveTetramino(AppModel.Motions.ROTATE)
+                2 -> moveTetramino(AppModel.Motions.DOWN)
+                3 -> moveTetramino(AppModel.Motions.RIGHT)
             }
         }
         return true
@@ -72,7 +72,7 @@ class GameActivity : AppCompatActivity() {
         return direction
     }
 
-    private fun moveTetromino(motion: AppModel.Motions) {
+    private fun moveTetramino(motion: AppModel.Motions) {
         if (appModel.isGameActive()) {
             tetrisView.setGameCommand(motion)
         }

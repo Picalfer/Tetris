@@ -2,8 +2,11 @@ package com.example.mytetris.models;
 
 import android.graphics.Color;
 import android.graphics.Point;
+
 import androidx.annotation.NonNull;
+
 import com.example.mytetris.constants.FieldConstants;
+
 import java.util.Random;
 
 public class Block {
@@ -22,24 +25,13 @@ public class Block {
 
     public static Block createBlock() {
         Random random = new Random();
-        int shapeIndex = random.nextInt(Shape.values().length); // получаем количество возможных
-        // тетромино
+        int shapeIndex = random.nextInt(Shape.values().length); // получаем количество возможных вариантов enum класса Shape
         BlockColor blockColor = BlockColor.values()
                 [random.nextInt(BlockColor.values().length)];
         Block block = new Block(shapeIndex, blockColor);
         block.position.x = block.position.x - Shape.values()
                 [shapeIndex].getStartPosition();
         return block;
-    }
-
-    public static int getColor(byte value) {
-        // проходимся по перечислению цветов и если байт совпадет с аргументом - возвращаем rgb
-        for (BlockColor color : BlockColor.values()) {
-            if (value == color.byteValue) {
-                return color.rgbValue;
-            }
-        }
-        return -1;
     }
 
     public final void setState(int frame, Point position) {
@@ -62,6 +54,16 @@ public class Block {
 
     public int getFrameNumber() {
         return frameNumber;
+    }
+
+    public static int getColor(byte value) {
+        // проходимся по перечислению цветов и если байт совпадет с аргументом - возвращаем rgb
+        for (BlockColor color : BlockColor.values()) {
+            if (value == color.byteValue) {
+                return color.rgbValue;
+            }
+        }
+        return -1;
     }
 
     public int getColor() {
